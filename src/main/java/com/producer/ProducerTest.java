@@ -12,7 +12,7 @@ public class ProducerTest {
 
         KafkaProducer<String, String> producer = null;
         try {
-            String topic = "firstTopic";
+            String topic = "sourceTopic";
 
 
             Properties props = new Properties();
@@ -31,8 +31,8 @@ public class ProducerTest {
             producer = new KafkaProducer<String, String>(props);
 
             for (int i = 0; i < 10; i++) {
-                System.out.println("sending : "+String.valueOf("Data" + (i + 1)));
-                ProducerRecord<String,String> record = new ProducerRecord<String, String>(topic, String.valueOf(i + 1), String.valueOf("Data" + (i + 1)));
+                System.out.println("sending : "+String.valueOf("Data " + (i + 1)));
+                ProducerRecord<String,String> record = new ProducerRecord<String, String>(topic, String.valueOf(i + 1), String.valueOf("Data " + (i + 1)));
                 producer.send(record, new Callback() {
                     @Override
                     public void onCompletion(RecordMetadata recordMetadata, Exception e) {
@@ -45,6 +45,7 @@ public class ProducerTest {
                     }
                 });
                 producer.flush();
+
                 System.out.println("sent...");
             }
         }catch (Exception e){

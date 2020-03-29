@@ -35,7 +35,7 @@ public class MyPartitioner implements Partitioner {
 
     }
 
-    @Override
+    //@Override
     public void onNewBatch(String topic, Cluster cluster, int prevPartition) {
 
     }

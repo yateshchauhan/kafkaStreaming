@@ -51,7 +51,7 @@ public class GenericKafkaConsumer {
 
             if (consumerRecords != null) {
                 consumerRecords.forEach(record -> {
-                    System.out.println("Topic :"+record.topic()+", value :"+record.value());
+                    System.out.println("Topic :"+record.topic()+", key :"+record.key()+" , value :"+record.value());
                     //System.out.println(("Topic :" + record.topic() + ", Partitions : " + record.partition() + ", Offset : " + record.offset() + ", Key :" + record.key()
                       //      + ",Values :" + record.value()));
                 });
